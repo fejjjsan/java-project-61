@@ -1,5 +1,14 @@
 plugins {
     id 'java'
+    id 'application'
+}
+
+compileJava {
+    options.release = 17
+}
+
+application {
+    mainClass = 'hexlet.code.App'
 }
 
 group = 'hexlet.code'
@@ -17,3 +26,4 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
