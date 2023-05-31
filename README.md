@@ -5,3 +5,4 @@
 
 Even game rec: https://asciinema.org/a/BJCExTbkgDzPgkDP0F4eIVuVn
 Calc game rec: https://asciinema.org/a/Q9fiWQVefYxpIcNwk7eifWBWt
+GCD game rec: https://asciinema.org/a/ATwPDuyIE0aWSCEGr6cgcGy3q
