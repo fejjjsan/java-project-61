@@ -2,65 +2,59 @@ package hexlet.code.games;
 
 import java.util.Scanner;
 
+import static hexlet.code.Engine.greeting;
+
+
 public class Calc {
     public static void playCalcGame() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("\nWelcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String userName = scanner.next();
-        System.out.println("Hello, " + userName + "!");
+        String userName = greeting();
 
         System.out.println("What is the result of the expression?");
 
         int answersCount = 1;
 
+        char[] operators = {'-', '+', '*'};
 
-        for (int i = 0; i < 3; i++) {
-            int num1 = (int) (Math.random() * 100) + 1;
-            int num2 = (int) (Math.random() * 100) + 1;
-            int rndOperator = (int) (Math.random() * 3) + 1;
-            char operator;
+        while (answersCount <= 3) {
+            Scanner scanner = new Scanner(System.in);
+            int num1 = (int) (Math.random() * 10) + 1;
+            int num2 = (int) (Math.random() * 10) + 1;
+            int rndOperator = (int) (Math.random() * 3);
             int rightAnswer = 0;
-            int userAnswer = 0;
 
+            System.out.println("Question: " + num1 + operators[rndOperator] + num2);
+            System.out.print("Your answer: ");
+            int userAnswer = scanner.nextInt();
 
-            switch (rndOperator) {
-                case 1: operator = '-';
-                    System.out.println("Question: " + num1 + operator + num2);
-                    System.out.print("Your answer: ");
-                    userAnswer = scanner.nextInt();
+            switch (operators[rndOperator]) {
+                case '-':
                     rightAnswer = num1 - num2;
                     break;
-                case 2: operator = '+';
-                    System.out.println("Question: " + num1 + operator + num2);
-                    System.out.print("Your answer: ");
-                    userAnswer = scanner.nextInt();
+                case '+':
                     rightAnswer = num1 + num2;
                     break;
-                case 3: operator = '*';
-                     System.out.println("Question: " + num1 + operator + num2);
-                    System.out.print("Your answer: ");
-                    userAnswer = scanner.nextInt();
+                case '*':
                     rightAnswer = num1 * num2;
                     break;
                 default: System.out.print("no operator");
             }
 
+            // check for right answer
             if (userAnswer == rightAnswer) {
                 if (answersCount != 3) {
                     System.out.println("Correct!");
                     answersCount++;
                 } else {
-                    System.out.print("\nCongratulations, " + userName + "!\n");
+                    System.out.println("Correct!");
+                    System.out.println("Congratulations, " + userName + "!");
                     break;
                 }
             }
             if (userAnswer != rightAnswer) {
-                System.out.print(userAnswer + " is wrong answer ;(. Correct answer was " + rightAnswer + ".");
-                System.out.print("\nLet's try again, " + userName + "\n");
+                System.out.println(userAnswer + " is wrong answer ;(. Correct answer was " + rightAnswer + ".");
+                System.out.println("Let's try again, " + userName + "!");
                 break;
             }
-
         }
     }
 }
