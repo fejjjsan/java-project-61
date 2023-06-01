@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import java.util.Scanner;
+import static hexlet.code.Engine.greeting;
 
 public class Even {
     public static String isEven(int num) {
@@ -8,36 +9,35 @@ public class Even {
     }
 
     public static void playEvenGame() {
-        Scanner scanner = new Scanner(System.in);
+        String userName = greeting();
 
-        System.out.println("\nWelcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String userName = scanner.next();
-        System.out.println("Hello, " + userName + "!");
-
-        System.out.print("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         int answersCount = 1;
 
-        for (int counter = 0; counter < 3; counter++) {
+        while (answersCount <= 3) {
+            Scanner scanner = new Scanner(System.in);
             int randomNum = (int) (Math.random() * 10) + 1;
             String rightAnswer = isEven(randomNum);
-            System.out.print("\nQuestion: " + randomNum);
-            System.out.print("\nYour answer: ");
+
+            System.out.println("Question: " + randomNum);
+            System.out.print("Your answer: ");
             String userAnswer = scanner.next();
 
+            // check for right answer
             if (userAnswer.equals(rightAnswer)) {
                 if (answersCount < 3) {
-                    System.out.print("Correct!");
+                    System.out.println("Correct!");
                     answersCount++;
-                }
-                if (answersCount == 3) {
-                    System.out.print("\nCongratulations, " + userName + "!");
+                } else {
+                    System.out.println("Correct!");
+                    System.out.println("Congratulations, " + userName + "!");
+                    break;
                 }
             }
             if (!userAnswer.equals(rightAnswer)) {
-                System.out.print(userAnswer + " is wrong answer ;(. Correct answer was " + rightAnswer + ".");
-                System.out.print("\nLet's try again, " + userName);
+                System.out.println(userAnswer + " is wrong answer ;(. Correct answer was " + rightAnswer + ".");
+                System.out.println("Let's try again, " + userName + "!");
                 break;
             }
         }
