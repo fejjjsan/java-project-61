@@ -6,3 +6,4 @@
 Even game rec: https://asciinema.org/a/BJCExTbkgDzPgkDP0F4eIVuVn <br />
 Calc game rec: https://asciinema.org/a/Q9fiWQVefYxpIcNwk7eifWBWt <br />
 GCD game rec: https://asciinema.org/a/ATwPDuyIE0aWSCEGr6cgcGy3q <br />
+Progression game rec: https://asciinema.org/a/Vnc1WudNqlg7PtTQ6GmEgLtPb <br />
