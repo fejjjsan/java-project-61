@@ -23,9 +23,10 @@ public class Progression {
             for (int i = 0; i < 10; i++) {
                 if (i == randomCounter) {
                     rightAnswer = randomNum;
-                    result.append(" .. ");
+                    result.append(".. ");
                 } else {
-                    result.append(" " + randomNum + " ");
+                    result.append(randomNum);
+                    result.append(" ");
                 }
                 randomNum += randomProgressionNum;
             }
@@ -36,11 +37,10 @@ public class Progression {
 
             // check for right answer
             if (userAnswer == rightAnswer) {
+                System.out.println("Correct!");
                 if (answersCount != 3) {
-                    System.out.println("Correct!");
                     answersCount++;
                 } else {
-                    System.out.println("Correct!");
                     System.out.println("Congratulations, " + userName + "!");
                     break;
                 }

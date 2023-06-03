@@ -39,11 +39,10 @@ public class Gcd {
 
             // check for right answer
             if (userAnswer == rightAnswer) {
+                System.out.println("Correct!");
                 if (answersCount != 3) {
-                    System.out.println("Correct!");
                     answersCount++;
                 } else {
-                    System.out.println("Correct!");
                     System.out.println("Congratulations, " + userName + "!");
                     break;
                 }
