@@ -36,10 +36,13 @@ public class Engine {
                 break;
             case 4:
                 playGcdGame();
+                break;
             case 5:
                 playProgressionGame();
+                break;
             case 6:
                 playPrimeGame();
+                break;
             default:
                 break;
         }
