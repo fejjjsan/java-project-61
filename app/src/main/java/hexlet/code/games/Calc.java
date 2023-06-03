@@ -22,7 +22,7 @@ public class Calc {
             int rndOperator = (int) (Math.random() * 3);
             int rightAnswer = 0;
 
-            System.out.println("Question: " + num1 + operators[rndOperator] + num2);
+            System.out.println("Question: " + num1 + " " + operators[rndOperator] + " " + num2);
             System.out.print("Your answer: ");
             int userAnswer = scanner.nextInt();
 
