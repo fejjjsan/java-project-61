@@ -3,19 +3,23 @@ package hexlet.code.games;
 import java.util.Scanner;
 
 import static hexlet.code.Engine.greeting;
+import static hexlet.code.Engine.numAnswerCheck;
 
 public class Gcd {
+
     public static void playGcdGame() {
         String userName = greeting();
 
         System.out.println("Find the greatest common divisor of given numbers.");
 
         int answersCount = 1;
+        int maxRightAnswers = 3;
+        int maxRandomNum = 100;
 
-        while (answersCount <= 3) {
+        while (answersCount <= maxRightAnswers) {
             Scanner scanner = new Scanner(System.in);
-            int num1 = (int) (Math.random() * 100) + 1;
-            int num2 = (int) (Math.random() * 100) + 1;
+            int num1 = (int) (Math.random() * maxRandomNum) + 1;
+            int num2 = (int) (Math.random() * maxRandomNum) + 1;
             int biggerNum = Math.max(num1, num2);
             int lowerNum = Math.min(num1, num2);
             int rightAnswer = 0;
@@ -37,19 +41,11 @@ public class Gcd {
                 }
             } while (remainder != 0);
 
-            // check for right answer
-            if (userAnswer == rightAnswer) {
-                System.out.println("Correct!");
-                if (answersCount != 3) {
-                    answersCount++;
-                } else {
-                    System.out.println("Congratulations, " + userName + "!");
-                    break;
-                }
-            }
-            if (userAnswer != rightAnswer) {
-                System.out.println(userAnswer + " is wrong answer ;(. Correct answer was " + rightAnswer + ".");
-                System.out.println("Let's try again, " + userName + "!");
+            boolean correctAnswer;
+            correctAnswer = numAnswerCheck(userAnswer, rightAnswer, answersCount, maxRightAnswers, userName);
+            if (correctAnswer) {
+                answersCount++;
+            } else {
                 break;
             }
         }

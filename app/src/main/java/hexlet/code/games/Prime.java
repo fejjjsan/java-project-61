@@ -3,6 +3,7 @@ package hexlet.code.games;
 import java.util.Scanner;
 
 import static hexlet.code.Engine.greeting;
+import static hexlet.code.Engine.strAnswerCheck;
 
 public class Prime {
     public static void playPrimeGame() {
@@ -11,10 +12,12 @@ public class Prime {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
         int answersCount = 1;
+        int maxRightAnswers = 3;
+        int maxRandomNum = 500;
 
-        while (answersCount <= 3) {
+        while (answersCount <= maxRightAnswers) {
             Scanner scanner = new Scanner(System.in);
-            int randomNum = (int) (Math.random() * 500) + 2;
+            int randomNum = (int) (Math.random() * maxRandomNum) + 2;
             int divider = 2;
             int maxDivider = (int) Math.sqrt(randomNum);
             String rightAnswer;
@@ -33,22 +36,13 @@ public class Prime {
             System.out.print("Your answer: ");
             String userAnswer = scanner.next();
 
-            // check for right answer
-            if (userAnswer.equals(rightAnswer)) {
-                System.out.println("Correct!");
-                if (answersCount < 3) {
-                    answersCount++;
-                } else {
-                    System.out.println("Congratulations, " + userName + "!");
-                    break;
-                }
-            }
-            if (!userAnswer.equals(rightAnswer)) {
-                System.out.println(userAnswer + " is wrong answer ;(. Correct answer was " + rightAnswer + ".");
-                System.out.println("Let's try again, " + userName + "!");
+            boolean correctAnswer;
+            correctAnswer = strAnswerCheck(userAnswer, rightAnswer, answersCount, maxRightAnswers, userName);
+            if (correctAnswer) {
+                answersCount++;
+            } else {
                 break;
             }
-
         }
     }
 }

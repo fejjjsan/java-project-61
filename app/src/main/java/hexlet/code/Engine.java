@@ -17,34 +17,18 @@ public class Engine {
         System.out.print("\n1 - Greet \n2 - Even \n3 - Calc \n4 - GCD ");
         System.out.print("\n5 - Progression \n6 - Prime \n0 - Exit \nYour choice: ");
 
+        int option = scanner.nextInt();
 
-        String gameNum = scanner.next();
-
-
-        switch (Integer.parseInt(gameNum)) {
-            case 0:
-                System.out.print("See you soon!");
-                break;
-            case 1:
-                greeting();
-                break;
-            case 2:
-                playEvenGame();
-                break;
-            case 3:
-                playCalcGame();
-                break;
-            case 4:
-                playGcdGame();
-                break;
-            case 5:
-                playProgressionGame();
-                break;
-            case 6:
-                playPrimeGame();
-                break;
-            default:
-                break;
+        switch (option) {
+            case 0 -> System.out.print("See you soon!");
+            case 1 -> greeting();
+            case 2 -> playEvenGame();
+            case 3 -> playCalcGame();
+            case 4 -> playGcdGame();
+            case 5 -> playProgressionGame();
+            case 6 -> playPrimeGame();
+            default -> {
+            }
         }
     }
 
@@ -58,8 +42,31 @@ public class Engine {
         return userName;
     }
 
-    public static String provideUserName() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.next();
+    public static boolean numAnswerCheck(int answer, int rightAnswer, int counter, int maxRightAns, String name) {
+        if (answer == rightAnswer) {
+            System.out.println("Correct!");
+            if (counter == maxRightAns) {
+                System.out.println("Congratulations, " + name + "!");
+            }
+        }
+        if (answer != rightAnswer) {
+            System.out.println(answer + " is wrong answer ;(. Correct answer was " + rightAnswer + ".");
+            System.out.println("Let's try again, " + name + "!");
+        }
+        return answer == rightAnswer;
+    }
+
+    public static boolean strAnswerCheck(String answer, String rightAnswer, int counter, int maxRightAns, String name) {
+        if (answer.equals(rightAnswer)) {
+            System.out.println("Correct!");
+            if (counter == maxRightAns) {
+                System.out.println("Congratulations, " + name + "!");
+            }
+        }
+        if (!answer.equals(rightAnswer)) {
+            System.out.println(answer + " is wrong answer ;(. Correct answer was " + rightAnswer + ".");
+            System.out.println("Let's try again, " + name + "!");
+        }
+        return answer.equals(rightAnswer);
     }
 }
