@@ -6,7 +6,7 @@ import static hexlet.code.Engine.greeting;
 import static hexlet.code.Engine.numAnswerCheck;
 
 public class Progression {
-    public static void playProgressionGame() {
+    public static void playProgression() {
         String userName = greeting();
 
         System.out.println("What number is missing in the progression?");

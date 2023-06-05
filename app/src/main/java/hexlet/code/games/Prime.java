@@ -6,7 +6,7 @@ import static hexlet.code.Engine.greeting;
 import static hexlet.code.Engine.strAnswerCheck;
 
 public class Prime {
-    public static void playPrimeGame() {
+    public static void playPrime() {
         String userName = greeting();
 
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");

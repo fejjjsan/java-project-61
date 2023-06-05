@@ -9,7 +9,7 @@ public class Even {
         return num % 2 == 0 ? "yes" : "no";
     }
 
-    public static void playEvenGame() {
+    public static void playEven() {
         String userName = greeting();
 
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");

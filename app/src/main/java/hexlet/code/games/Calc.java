@@ -7,7 +7,7 @@ import static hexlet.code.Engine.numAnswerCheck;
 
 
 public class Calc {
-    public static void playCalcGame() {
+    public static void playCalc() {
         String userName = greeting();
 
         System.out.println("What is the result of the expression?");

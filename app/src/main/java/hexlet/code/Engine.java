@@ -2,11 +2,11 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-import static hexlet.code.games.Even.playEvenGame;
-import static hexlet.code.games.Calc.playCalcGame;
-import static hexlet.code.games.Gcd.playGcdGame;
-import static hexlet.code.games.Progression.playProgressionGame;
-import static hexlet.code.games.Prime.playPrimeGame;
+import static hexlet.code.games.Even.playEven;
+import static hexlet.code.games.Calc.playCalc;
+import static hexlet.code.games.Gcd.playGcd;
+import static hexlet.code.games.Progression.playProgression;
+import static hexlet.code.games.Prime.playPrime;
 
 
 public class Engine {
@@ -22,11 +22,11 @@ public class Engine {
         switch (option) {
             case 0 -> System.out.print("See you soon!");
             case 1 -> greeting();
-            case 2 -> playEvenGame();
-            case 3 -> playCalcGame();
-            case 4 -> playGcdGame();
-            case 5 -> playProgressionGame();
-            case 6 -> playPrimeGame();
+            case 2 -> playEven();
+            case 3 -> playCalc();
+            case 4 -> playGcd();
+            case 5 -> playProgression();
+            case 6 -> playPrime();
             default -> {
             }
         }
