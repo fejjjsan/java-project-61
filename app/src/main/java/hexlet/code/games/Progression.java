@@ -24,7 +24,7 @@ public class Progression {
             int rightAnswer = 0;
             int randomCounter = (int) (Math.random() * MAX_RND_COUNTER);
 
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < MAX_RND_COUNTER; i++) {
                 if (i == randomCounter) {
                     rightAnswer = randomNum;
                     result.append(".. ");
