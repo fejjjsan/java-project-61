@@ -1,15 +1,21 @@
 package hexlet.code;
 
 import java.util.Scanner;
-
 import static hexlet.code.games.Even.playEven;
 import static hexlet.code.games.Calc.playCalc;
 import static hexlet.code.games.Gcd.playGcd;
 import static hexlet.code.games.Progression.playProgression;
 import static hexlet.code.games.Prime.playPrime;
 
-
 public class Engine {
+    private static final int EXIT_OPTION = 0;
+    private static final int GREET_OPTION = 1;
+    private static final int EVEN_OPTION = 2;
+    private static final int CALC_OPTION = 3;
+    private static final int GCD_OPTION = 4;
+    private static final int PROGRESSION_OPTION = 5;
+    private static final int PRIME_OPTION = 6;
+    public static final int MAX_RIGHT_ANSWERS = 3;
     public static void chooseTheGame() {
         Scanner scanner = new Scanner(System.in);
 
@@ -17,16 +23,17 @@ public class Engine {
         System.out.print("\n1 - Greet \n2 - Even \n3 - Calc \n4 - GCD ");
         System.out.print("\n5 - Progression \n6 - Prime \n0 - Exit \nYour choice: ");
 
+
         int option = scanner.nextInt();
 
         switch (option) {
-            case 0 -> System.out.print("See you soon!");
-            case 1 -> greeting();
-            case 2 -> playEven();
-            case 3 -> playCalc();
-            case 4 -> playGcd();
-            case 5 -> playProgression();
-            case 6 -> playPrime();
+            case EXIT_OPTION -> System.out.print("See you soon!");
+            case GREET_OPTION -> greeting();
+            case EVEN_OPTION -> playEven();
+            case CALC_OPTION -> playCalc();
+            case GCD_OPTION -> playGcd();
+            case PROGRESSION_OPTION -> playProgression();
+            case PRIME_OPTION -> playPrime();
             default -> {
             }
         }

@@ -4,22 +4,21 @@ import java.util.Scanner;
 
 import static hexlet.code.Engine.greeting;
 import static hexlet.code.Engine.numAnswerCheck;
+import static hexlet.code.Engine.MAX_RIGHT_ANSWERS;
 
 public class Gcd {
-
+    private static final int MAX_RND_NUMBER = 100;
     public static void playGcd() {
         String userName = greeting();
 
         System.out.println("Find the greatest common divisor of given numbers.");
 
         int answersCount = 1;
-        int maxRightAnswers = 3;
-        int maxRandomNum = 100;
 
-        while (answersCount <= maxRightAnswers) {
+        while (answersCount <= MAX_RIGHT_ANSWERS) {
             Scanner scanner = new Scanner(System.in);
-            int num1 = (int) (Math.random() * maxRandomNum) + 1;
-            int num2 = (int) (Math.random() * maxRandomNum) + 1;
+            int num1 = (int) (Math.random() * MAX_RND_NUMBER) + 1;
+            int num2 = (int) (Math.random() * MAX_RND_NUMBER) + 1;
             int biggerNum = Math.max(num1, num2);
             int lowerNum = Math.min(num1, num2);
             int rightAnswer = 0;
@@ -42,7 +41,7 @@ public class Gcd {
             } while (remainder != 0);
 
             boolean correctAnswer;
-            correctAnswer = numAnswerCheck(userAnswer, rightAnswer, answersCount, maxRightAnswers, userName);
+            correctAnswer = numAnswerCheck(userAnswer, rightAnswer, answersCount, MAX_RIGHT_ANSWERS, userName);
             if (correctAnswer) {
                 answersCount++;
             } else {

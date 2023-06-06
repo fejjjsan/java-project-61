@@ -1,10 +1,13 @@
 package hexlet.code.games;
 
 import java.util.Scanner;
+
 import static hexlet.code.Engine.greeting;
 import static hexlet.code.Engine.strAnswerCheck;
+import static hexlet.code.Engine.MAX_RIGHT_ANSWERS;
 
 public class Even {
+    private static final int MAX_RND_NUMBER = 10;
     public static String isEven(int num) {
         return num % 2 == 0 ? "yes" : "no";
     }
@@ -15,12 +18,10 @@ public class Even {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         int answersCount = 1;
-        int maxRightAnswers = 3;
-        int maxRandomNum = 10;
 
-        while (answersCount <= maxRightAnswers) {
+        while (answersCount <= MAX_RIGHT_ANSWERS) {
             Scanner scanner = new Scanner(System.in);
-            int randomNum = (int) (Math.random() * maxRandomNum) + 1;
+            int randomNum = (int) (Math.random() * MAX_RND_NUMBER) + 1;
             String rightAnswer = isEven(randomNum);
 
             System.out.println("Question: " + randomNum);
@@ -28,7 +29,7 @@ public class Even {
             String userAnswer = scanner.next();
 
             boolean correctAnswer;
-            correctAnswer = strAnswerCheck(userAnswer, rightAnswer, answersCount, maxRightAnswers, userName);
+            correctAnswer = strAnswerCheck(userAnswer, rightAnswer, answersCount, MAX_RIGHT_ANSWERS, userName);
             if (correctAnswer) {
                 answersCount++;
             } else {
