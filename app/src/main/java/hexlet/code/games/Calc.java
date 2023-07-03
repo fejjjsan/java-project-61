@@ -1,57 +1,40 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
-
-import static hexlet.code.Engine.greeting;
-import static hexlet.code.Engine.numAnswerCheck;
-import static hexlet.code.Engine.MAX_RIGHT_ANSWERS;
-
-
-public class Calc {
+public class Calc implements Game {
     private static final int MAX_RND_NUMBER = 10;
-    public static void playCalc() {
-        String userName = greeting();
-
-        System.out.println("What is the result of the expression?");
-
-        int answersCount = 1;
-
+    public String[] getData() {
+        int num1 = (int) (Math.random() * MAX_RND_NUMBER) + 1;
+        int num2 = (int) (Math.random() * MAX_RND_NUMBER) + 1;
         char[] operators = {'-', '+', '*'};
+        int rndOperator = (int) (Math.random() * operators.length);
+        String question = "Question: " + num1 + " " + operators[rndOperator] + " " + num2;
+        int rightAnswer = 0;
+        String[] data = new String[2];
 
-        while (answersCount <= MAX_RIGHT_ANSWERS) {
-            Scanner scanner = new Scanner(System.in);
-            int num1 = (int) (Math.random() * MAX_RND_NUMBER) + 1;
-            int num2 = (int) (Math.random() * MAX_RND_NUMBER) + 1;
-            int rndOperator = (int) (Math.random() * operators.length);
-            int rightAnswer = 0;
-
-            System.out.println("Question: " + num1 + " " + operators[rndOperator] + " " + num2);
-            System.out.print("Your answer: ");
-            int userAnswer = scanner.nextInt();
-
-            switch (operators[rndOperator]) {
-                case '-':
-                    rightAnswer = num1 - num2;
-                    break;
-                case '+':
-                    rightAnswer = num1 + num2;
-                    break;
-                case '*':
-                    rightAnswer = num1 * num2;
-                    break;
-                default:
-                    System.out.print("no operator");
-                    break;
-            }
-
-            boolean correctAnswer;
-            correctAnswer = numAnswerCheck(userAnswer, rightAnswer, answersCount, MAX_RIGHT_ANSWERS, userName);
-            if (correctAnswer) {
-                answersCount++;
-            } else {
+        switch (operators[rndOperator]) {
+            case '-':
+                rightAnswer = num1 - num2;
                 break;
-            }
+            case '+':
+                rightAnswer = num1 + num2;
+                break;
+            case '*':
+                rightAnswer = num1 * num2;
+                break;
+            default:
+                System.out.print("no operator");
+                break;
         }
+        data[0] = question;
+        data[1] = Integer.toString(rightAnswer);
+
+        return data;
+    }
+    public String getTask() {
+        return "What is the result of the expression?";
 
     }
 }
+
+
+
