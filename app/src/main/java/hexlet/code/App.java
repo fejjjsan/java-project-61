@@ -1,6 +1,6 @@
 package hexlet.code;
 
-import  static hexlet.code.Engine.chooseTheGame;
+import static hexlet.code.Menu.chooseTheGame;
 
 
 class App {
