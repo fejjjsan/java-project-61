@@ -2,16 +2,16 @@ package hexlet.code.games;
 
 public class Calc implements Game {
     private static final int MAX_RND_NUMBER = 10;
+    private static final char[] MATH_SIGNS = {'-', '+', '*'};
     public String[] getData() {
         int num1 = (int) (Math.random() * MAX_RND_NUMBER) + 1;
         int num2 = (int) (Math.random() * MAX_RND_NUMBER) + 1;
-        char[] operators = {'-', '+', '*'};
-        int rndOperator = (int) (Math.random() * operators.length);
-        String question = "Question: " + num1 + " " + operators[rndOperator] + " " + num2;
+        int rndOperator = (int) (Math.random() * MATH_SIGNS.length);
+        String question = num1 + " " + MATH_SIGNS[rndOperator] + " " + num2;
         int rightAnswer = 0;
         String[] data = new String[2];
 
-        switch (operators[rndOperator]) {
+        switch (MATH_SIGNS[rndOperator]) {
             case '-':
                 rightAnswer = num1 - num2;
                 break;
@@ -22,8 +22,8 @@ public class Calc implements Game {
                 rightAnswer = num1 * num2;
                 break;
             default:
-                System.out.print("no operator");
-                break;
+                System.out.print("ERROR");
+                System.exit(0);
         }
         data[0] = question;
         data[1] = Integer.toString(rightAnswer);
