@@ -4,8 +4,8 @@ public class Even implements Game {
     private static final int MAX_RND_NUMBER = 10;
     public String[] getData() {
         int randomNum = (int) (Math.random() * MAX_RND_NUMBER) + 1;
-        String rightAnswer = isEven(randomNum);
-        String question = "Question: " + randomNum;
+        String rightAnswer = isEven(randomNum) ? "yes" : "no";
+        String question = Integer.toString(randomNum);
 
         String[] data = new String[2];
         data[0] = question;
@@ -16,8 +16,8 @@ public class Even implements Game {
     public String getTask() {
         return "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
-    public static String isEven(int num) {
-        return num % 2 == 0 ? "yes" : "no";
+    public static boolean isEven(int num) {
+        return num % 2 == 0;
     }
 }
 
