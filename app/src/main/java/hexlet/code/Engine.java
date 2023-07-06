@@ -5,15 +5,12 @@ import java.util.Scanner;
 
 public class Engine {
     public static final int MAX_RIGHT_ANSWERS = 3;
-    public static String getUserName() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.next();
-    }
+
     public static void playGame(Game game) {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");
-
-        String userName = getUserName();
+        Scanner scanner = new Scanner(System.in);
+        String userName = scanner.next();
         System.out.println("Hello, " + userName + "!");
 
         String task = game.getTask();
@@ -25,33 +22,23 @@ public class Engine {
             var question = data[0];
             var rightAnswer = data[1];
 
-            System.out.println(question);
+            System.out.println("Question: " + question);
             System.out.print("Your answer: ");
-            Scanner scanner = new Scanner(System.in);
             String userAnswer = scanner.next();
 
-            boolean correctAnswer;
-            correctAnswer = answerCheck(userAnswer, rightAnswer, answersCount, MAX_RIGHT_ANSWERS, userName);
-
-            if (correctAnswer) {
+            if (userAnswer.equals(rightAnswer)) {
+                if (answersCount == MAX_RIGHT_ANSWERS) {
+                    System.out.println("Correct!");
+                    System.out.println("Congratulations, " + userName + "!");
+                    break;
+                }
+                System.out.println("Correct!");
                 answersCount++;
             } else {
+                System.out.println(userAnswer + " is wrong answer ;(. Correct answer was " + rightAnswer + ".");
+                System.out.println("Let's try again, " + userName + "!");
                 break;
             }
         }
-    }
-
-    public static boolean answerCheck(String answer, String rightAnswer, int counter, int maxRightAns, String name) {
-        if (answer.equals(rightAnswer)) {
-            System.out.println("Correct!");
-            if (counter == maxRightAns) {
-                System.out.println("Congratulations, " + name + "!");
-            }
-        }
-        if (!answer.equals(rightAnswer)) {
-            System.out.println(answer + " is wrong answer ;(. Correct answer was " + rightAnswer + ".");
-            System.out.println("Let's try again, " + name + "!");
-        }
-        return answer.equals(rightAnswer);
     }
 }
