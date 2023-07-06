@@ -25,7 +25,7 @@ public class Progression implements Game {
             randomNum += randomProgressionNum;
         }
 
-        question = "Question: " + result;
+        question = result.toString();
 
         String[] data = new String[2];
         data[0] = question;
