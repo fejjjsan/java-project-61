@@ -1,10 +1,14 @@
 package hexlet.code.games;
 
-public class Prime implements Game {
+import static hexlet.code.Utils.rndNumGenerator;
+
+public final class Prime implements Game {
     private static final int MAX_RND_NUMBER = 500;
 
+    private static final int LOW_RND_NUMBER = 0;
+
     public String[] getData() {
-        int randomNum = (int) (Math.random() * MAX_RND_NUMBER) + 2;
+        int randomNum = rndNumGenerator(MAX_RND_NUMBER, LOW_RND_NUMBER);
         String question = Integer.toString(randomNum);
         String rightAnswer = isPrime(randomNum) ? "yes" : "no";
 
@@ -20,6 +24,10 @@ public class Prime implements Game {
     }
 
     public static boolean isPrime(int randomNum) {
+        if (randomNum == 0 || randomNum == 1) {
+            return false;
+        }
+
         int divider = 2;
         boolean result;
         int maxDivider = (int) Math.sqrt(randomNum);

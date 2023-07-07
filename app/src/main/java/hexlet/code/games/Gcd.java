@@ -1,11 +1,14 @@
 package hexlet.code.games;
 
-public class Gcd implements Game {
+import static hexlet.code.Utils.rndNumGenerator;
+
+public final class Gcd implements Game {
     private static final int MAX_RND_NUMBER = 100;
+    private static final int LOW_RND_NUMBER = 1;
 
     public String[] getData() {
-        int num1 = (int) (Math.random() * MAX_RND_NUMBER) + 1;
-        int num2 = (int) (Math.random() * MAX_RND_NUMBER) + 1;
+        int num1 = rndNumGenerator(MAX_RND_NUMBER, LOW_RND_NUMBER);
+        int num2 = rndNumGenerator(MAX_RND_NUMBER, LOW_RND_NUMBER);
         int biggerNum = Math.max(num1, num2);
         int lowerNum = Math.min(num1, num2);
 

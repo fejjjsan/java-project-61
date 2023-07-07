@@ -1,9 +1,11 @@
 package hexlet.code.games;
 
-public class Even implements Game {
+import static hexlet.code.Utils.rndNumGenerator;
+public final class Even implements Game {
     private static final int MAX_RND_NUMBER = 10;
+    private static final int LOW_RND_NUMBER = 1;
     public String[] getData() {
-        int randomNum = (int) (Math.random() * MAX_RND_NUMBER) + 1;
+        int randomNum = rndNumGenerator(MAX_RND_NUMBER, LOW_RND_NUMBER);
         String rightAnswer = isEven(randomNum) ? "yes" : "no";
         String question = Integer.toString(randomNum);
 
