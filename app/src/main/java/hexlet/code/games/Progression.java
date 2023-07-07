@@ -17,7 +17,7 @@ public final class Progression implements Game {
         int randomCounter = rndNumGenerator(MAX_RND_COUNTER, LOW_RND_NUMBER);
         String question;
 
-        for (int i = 0; i < MAX_RND_COUNTER; i++) {
+        for (int i = 1; i <= MAX_RND_COUNTER; i++) {
             if (i == randomCounter) {
                 rightAnswer = randomNum;
                 result.append(".. ");
